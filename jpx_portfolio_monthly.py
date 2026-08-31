@@ -75,7 +75,6 @@ def analyze_portfolio(mykabu_csv, target_yyyymm):
     # ----------------------------
     results = []
     today_str = datetime.today().strftime("%Y/%m/%d")
-    today_file = datetime.today().strftime("%Y%m%d")
 
     for _, row in df_pos_target.iterrows():
         code = row["code"]
@@ -160,7 +159,7 @@ def analyze_portfolio(mykabu_csv, target_yyyymm):
     # ----------------------------
     # ⑥ CSV 保存
     # ----------------------------
-    output_name = f"portfolio_result_{today_file}.csv"
+    output_name = f"portfolio_result_{target_yyyymm}.csv"
     df_new.to_csv(output_name, index=False, encoding="utf-8-sig")
 
     print(f"\nCSV に保存しました → {output_name}")
